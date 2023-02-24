@@ -12,4 +12,4 @@ RUN pip3 install -U -r requirements.txt
 RUN mkdir /Url-Uploader-Bot-V4
 WORKDIR /Url-Uploader-Bot-V4
 COPY start.sh /start.sh
-CMD ["/bin/bash", "python", "bot.py", "/start.sh"]
+CMD ["/bin/bash", "/start.sh"]
