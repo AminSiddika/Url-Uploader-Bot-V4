@@ -17,13 +17,8 @@
   "success_url": "https://t.me/Urluploaderadvancedbot",
   "website": "https://github.com/aceknox",
   "repository": "https://github.com/aceknox/Url-Uploader-Bot-V4",
-
-  "env": {
-    "WEBHOOK": {
-      "description": "Setting this to ANYTHING will enable webhooks when in env mode",
-      "value": "ANYTHING"
-    },
-
+  "
+  "env": 
     "BOT_TOKEN": {
       "description": "Your bot token, as a string.",
       "value": ""
@@ -59,18 +54,16 @@
 
   },
 
-  "addons": [ ],
-  "buildpacks": [
-  {
+  "stack": "container",
+  "buildpacks": [{
     "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
-  },
-  {
+  }, {
     "url": "heroku/python"
   }],
   "formation": {
-     "worker": {
-       "quantity": 1,
-       "size": "free"
-     }
+    "worker": {
+      "quantity": 1,
+      "size": "eco"
+    }
   }
 }
