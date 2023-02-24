@@ -7,5 +7,7 @@ RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
     apt-get install -y nodejs && \
     npm i -g npm
 
+WORKDIR .
+COPY . .
 RUN pip3 install -U -r requirements.txt
 CMD ["python3", "bot.py"]
