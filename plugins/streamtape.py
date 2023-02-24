@@ -7,14 +7,13 @@ from config import Config
 from translation import Translation
 from plugins.custom_thumbnail import *
 from helper_funcs.display_progress import progress_for_pyrogram, humanbytes, TimeFormatter
+from lk21 import Bypass
 
 async def get_download_url(url):
-    raw = requests.get(url)
-    if re.findall(r"document.*((?=id\=)[^']+)", raw.text):
-        videolink = re.findall(r"document.*((?=id\=)[^']+)", raw.text)
-        nexturl = "https://streamtape.com/get_video?" + videolink[-3]
-    head = requests.head(nexturl)
-    return head.headers.get("Location", nexturl)
+    try:
+        return Bypass().bypass_streamtape(url)
+    except Exception as e:
+        raise DirectDownloadLinkException(f"ERROR: {e.__class__.__name__}")
     
 async def download(bot, message, info_msg):
     cb_data = message.data
