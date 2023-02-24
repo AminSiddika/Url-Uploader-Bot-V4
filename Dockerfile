@@ -6,10 +6,6 @@ RUN pip3 install -U pip
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
     apt-get install -y nodejs && \
     npm i -g npm
-COPY requirements.txt /requirements.txt
-RUN cd /
+
 RUN pip3 install -U -r requirements.txt
-RUN mkdir /Url-Uploader-Bot-V4
-WORKDIR /Url-Uploader-Bot-V4
-COPY start.sh /start.sh
-CMD ["/bin/bash", "/start.sh"]
+CMD ["python3", "bot.py"]
