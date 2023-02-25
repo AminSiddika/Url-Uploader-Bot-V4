@@ -104,8 +104,8 @@ async def start(bot, update):
             [
                 
                    [ 
-                    InlineKeyboardButton("Channel ⚡", url="https://t.me/knoxprojects"),
-                    InlineKeyboardButton("Developer 👨‍⚖️", url="https://t.me/aceknox"),
+                    InlineKeyboardButton("Channel ⚡", url="https://t.me/HoichoiHok"),
+                    InlineKeyboardButton("Developer 👨‍⚖️", url="https://t.me/mobius_die"),
                    
                 ],
             
