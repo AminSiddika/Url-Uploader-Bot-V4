@@ -1,4 +1,4 @@
-# enable if you want it 
+# disable full code if don't want you want it 
 
 import asyncio
 from config import Config
