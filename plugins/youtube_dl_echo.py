@@ -47,6 +47,7 @@ async def echo(bot, message):
 
     
     logger.info(message.from_user)
+    url = message.text
     youtube_dl_username = None
     youtube_dl_password = None
     file_name = None
@@ -64,7 +65,6 @@ async def echo(bot, message):
             await pablo.edit_text('Downloading...')
             bypasser = lk21.Bypass()
             xurl = bypasser.bypass_url(url)
-    url = message.text
     if " * " in url:
         url_parts = url.split(" * ")
         if len(url_parts) == 2:
