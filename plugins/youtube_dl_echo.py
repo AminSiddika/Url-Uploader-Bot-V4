@@ -3,6 +3,7 @@ import logging
 logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 import os, re, time, asyncio, json, random, string
+import lk21, urllib.parse, filetype, shutil, time, tldextract, asyncio, json, math, os, requests
 from config import Config
 from database.adduser import AddUser
 from translation import Translation
@@ -49,6 +50,20 @@ async def echo(bot, message):
     youtube_dl_username = None
     youtube_dl_password = None
     file_name = None
+    folder = f'./lk21/{update.from_user.id}/'
+        bypass = ['zippyshare', 'hxfile', 'mediafire', 'anonfiles', 'antfiles']
+        ext = tldextract.extract(url)
+        if ext.domain in bypass:
+            pablo = await update.reply_text('LK21 link detected')
+            time.sleep(2.5)
+            if os.path.isdir(folder):
+                await update.reply_text("Don't spam, wait till your previous task done.")
+                await pablo.delete()
+                return
+            os.makedirs(folder)
+            await pablo.edit_text('Downloading...')
+            bypasser = lk21.Bypass()
+            xurl = bypasser.bypass_url(url)
     url = message.text
     if " * " in url:
         url_parts = url.split(" * ")
