@@ -50,14 +50,14 @@ async def echo(bot, message):
     youtube_dl_username = None
     youtube_dl_password = None
     file_name = None
-    folder = f'./lk21/{update.from_user.id}/'
+    folder = f'./lk21/{message.from_user.id}/'
     bypass = ['zippyshare', 'hxfile', 'mediafire', 'anonfiles', 'antfiles']
     ext = tldextract.extract(url)
     if ext.domain in bypass:
-            pablo = await update.reply_text('LK21 link detected')
+            pablo = await message.reply_text('LK21 link detected')
             time.sleep(2.5)
             if os.path.isdir(folder):
-                await update.reply_text("Don't spam, wait till your previous task done.")
+                await message.reply_text("Don't spam, wait till your previous task done.")
                 await pablo.delete()
                 return
             os.makedirs(folder)
