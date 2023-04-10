@@ -15,7 +15,7 @@ from pyrogram import Client
 from helper_funcs.display_progress import humanbytes, ContentLength
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
-import lk21
+import lk21, tldextract
 from lk21 import Bypass
 
 
@@ -54,9 +54,9 @@ async def echo(bot, message):
     youtube_dl_password = None
     file_name = None
     folder = f'./lk21/{update.from_user.id}/'
-        bypass = ['zippyshare', 'hxfile', 'mediafire', 'anonfiles', 'antfiles']
-        ext = tldextract.extract(url)
-        if ext.domain in bypass:
+    bypass = ['zippyshare', 'hxfile', 'mediafire', 'anonfiles', 'antfiles']
+    ext = tldextract.extract(url)
+    if ext.domain in bypass:
             pablo = await update.reply_text('LK21 link detected')
             time.sleep(2.5)
             if os.path.isdir(folder):
