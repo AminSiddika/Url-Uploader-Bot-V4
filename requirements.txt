@@ -9,7 +9,6 @@ requests
 tgcrypto
 aiofiles
 bs4
-lk21
 Flask==2.2.2
 gunicorn==20.1.0
 beautifulsoup4
@@ -22,3 +21,5 @@ filetype
 tldextract
 aiofiles
 pyromod
+git+https://github.com/zevtyardt/lk21.git
+cloudscraper
