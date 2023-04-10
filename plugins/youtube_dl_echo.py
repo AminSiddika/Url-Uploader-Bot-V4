@@ -15,6 +15,9 @@ from pyrogram import Client
 from helper_funcs.display_progress import humanbytes, ContentLength
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
+import lk21
+from lk21 import Bypass
+
 
 @Client.on_message(filters.regex(pattern=".*http.*"))
 
@@ -50,6 +53,20 @@ async def echo(bot, message):
     youtube_dl_username = None
     youtube_dl_password = None
     file_name = None
+    folder = f'./lk21/{update.from_user.id}/'
+        bypass = ['zippyshare', 'hxfile', 'mediafire', 'anonfiles', 'antfiles']
+        ext = tldextract.extract(url)
+        if ext.domain in bypass:
+            pablo = await update.reply_text('LK21 link detected')
+            time.sleep(2.5)
+            if os.path.isdir(folder):
+                await update.reply_text("Don't spam, wait till your previous task done.")
+                await pablo.delete()
+                return
+            os.makedirs(folder)
+            await pablo.edit_text('Downloading...')
+            bypasser = lk21.Bypass()
+            xurl = bypasser.bypass_url(url)
     if " * " in url:
         url_parts = url.split(" * ")
         if len(url_parts) == 2:
